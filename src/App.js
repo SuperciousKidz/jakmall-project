@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header/Header';
+import Delivery from './components/pages/delivery/Delivery';
+import Payment from './components/pages/payment/Payment';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { ValueContext } from './components/context/ValueContext';
+import React, {useState, useEffect} from 'react';
 
-function App() {
+const App = () => {
+
+  const [values, setValues] = useState({
+    email: "",
+    dropshipperName: "",
+    phoneNumber: "",
+    dropshipperPhoneNumber: "",
+    deliveryAddress: "",
+    costOfGoods: 500000,
+    dropshippingFee: 0
+  })
+
+  useEffect(() => {
+    const items = JSON.parse(window.localStorage.getItem('value'));
+    if(!items) {
+      window.localStorage.setItem('value', JSON.stringify(values));
+    }
+    console.log('items app', items);
+  }, [values]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      <Router>
+        <ValueContext.Provider value={{values, setValues}}>
+          <Routes>
+            <Route path="/" exact element={<Delivery />} />
+            <Route path="/delivery" element={<Delivery />} />
+            <Route path="/payment" element={<Payment />} />
+          </Routes>
+        </ValueContext.Provider>
+      </Router>
     </div>
   );
 }
