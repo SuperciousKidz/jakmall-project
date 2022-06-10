@@ -1,0 +1,220 @@
+.content-payment {
+    background-color: white;
+    padding: 50px;
+}
+
+.content-payment-back {
+    margin: 0 0 20px 0;
+    border: none;
+    background-color: white;
+    outline: none;
+}
+
+.content-payment-back:active {
+    border: none;
+    outline: none;
+    background-color: white;
+    color: #FF8A00;
+}
+
+.content-payment-flex {
+    display: flex;
+}
+
+.content-payment-flex-left {
+    width: 75%;
+}
+
+.content-payment-flex-left-shipment-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #FF8A00;
+}
+
+.content-payment-flex-left-shipment-choose-box {
+    border: 2px solid rgba(0, 0, 0, 0.097);
+    padding: 10px 0px 10px 10px;
+    margin: 20px 20px 0 0;
+    text-align: left;
+    width: 160px;
+}
+
+.content-payment-flex-left-shipment-choose-box-now {
+    padding: 10px 0px 10px 10px;
+    width: 160px;
+    border: 2px solid green;
+    margin: 20px 20px 0 0;
+    text-align: left;
+}
+
+.content-payment-flex-left-shipment-choose-box:focus {
+    border: 2px solid green;
+    margin: 20px 20px 0 0;
+    text-align: left;
+}
+.text-bold {
+    font-weight: bold;
+}
+
+.content-payment-flex-left-payment-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #FF8A00;
+    margin: 50px 0 0 0;
+}
+
+.content-payment-flex-left-payment-choose-box {
+    border: 2px solid rgba(0, 0, 0, 0.097);
+    padding: 10px 0px 10px 10px;
+    margin: 20px 20px 0 0;
+    text-align: left;
+    width: 160px;
+}
+
+.content-payment-flex-left-payment-choose-box-now {
+    border: 2px solid green;
+    padding: 10px 0px 10px 10px;
+    margin: 20px 20px 0 0;
+    text-align: left;
+    width: 160px;
+}
+
+.content-payment-flex-left-payment-choose-box:focus {
+    border: 2px solid green;
+    margin: 20px 20px 0 0;
+    text-align: left;
+}
+
+.content-payment-flex-right {
+    width: 28%;
+}
+
+.content-payment-flex-right-header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF8A00;
+}
+
+.content-payment-flex-right-header-desc {
+    color: rgba(0, 0, 0, 0.785);
+    margin: 10px 0 30px 0;
+}
+
+.content-payment-flex-right-body-desc {
+    color: rgba(112, 96, 96, 0.785);
+    margin-bottom: 90px;
+}
+
+.content-payment-flex-right-bottom-cost {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-payment-flex-right-bottom-dropshipping {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.content-payment-flex-right-bottom-shipment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-payment-flex-right-bottom-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0 25px 0;
+}
+
+.content-payment-flex-right-bottom-total-title {
+    font-size: 24px;
+    color: #FF8A00;
+    font-weight: bold;
+}
+
+.content-payment-flex-right-bottom-total-price {
+    font-size: 24px;
+    color: #FF8A00;
+    font-weight: bold;
+}
+
+.content-payment-flex-right-body {
+    margin: 80px 0;
+}
+.content-payment-flex-right-bottom-button {
+    min-width: 100%;
+    min-height: 50px;
+    background-color: #FF8A00;
+    border: none; 
+    color: white;
+    font-weight: bold;
+}
+
+.content-payment-flex-right-bottom-button:disabled {
+    min-width: 100%;
+    min-height: 50px;
+    background-color: #aa9b9b;
+    border: none; 
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 890px) {
+    /* .content-payment-flex {
+        display: flex;
+        flex-wrap: wrap;
+        width: max-content;
+    } */
+
+    .content-payment-flex-right-bottom-total-title {
+        font-size: 20px;
+    }
+    .content-payment-flex-right-bottom-total-price {
+        font-size: 16px;
+    }
+    .content-payment-flex-right-bottom-cost-title {
+        font-size: 14px;
+    }
+    .content-payment-flex-right-bottom-cost-price {
+        font-size: 14px;
+    }
+    .content-payment-flex-right-bottom-dropshipping-title {
+        font-size: 14px;
+    }
+    .content-payment-flex-right-bottom-dropshipping-price {
+        font-size: 14px;
+    }
+    .content-payment-flex-right-bottom-shipment-title {
+        font-size: 14px;
+    }
+    .content-payment-flex-right-bottom-shipment-price {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    /* .content-payment-flex {
+        display: flex;
+        flex-wrap: wrap;
+        width: max-content;
+    } */
+    .content-payment-flex-right-bottom-cost {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content-payment-flex-right-bottom-dropshipping {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content-payment-flex-right-bottom-shipment {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content-payment-flex-right-bottom-total {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content-payment-flex-right-bottom-button {
+        width: 100px;
+    }
+}

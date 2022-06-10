@@ -4,6 +4,7 @@ import Payment from './components/pages/payment/Payment';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { ValueContext } from './components/context/ValueContext';
 import React, {useState, useEffect} from 'react';
+import Finish from './components/pages/finish/Finish';
 
 const App = () => {
 
@@ -14,7 +15,8 @@ const App = () => {
     dropshipperPhoneNumber: "",
     deliveryAddress: "",
     costOfGoods: 500000,
-    dropshippingFee: 0
+    dropshippingFee: 0,
+    paymentBalance: 1500000
   })
 
   useEffect(() => {
@@ -22,7 +24,6 @@ const App = () => {
     if(!items) {
       window.localStorage.setItem('value', JSON.stringify(values));
     }
-    console.log('items app', items);
   }, [values]);
 
   return (
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/" exact element={<Delivery />} />
             <Route path="/delivery" element={<Delivery />} />
             <Route path="/payment" element={<Payment />} />
+            <Route path="/finish" element={<Finish />} />
           </Routes>
         </ValueContext.Provider>
       </Router>

@@ -54,3 +54,10 @@
     margin: 0 0 0 15px;
     color: #FF8A00;
 }
+
+
+@media only screen and (max-width: 706px) {
+    .content-header-flex-sub {
+        padding: 10px 0px;
+    }
+}

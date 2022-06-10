@@ -1,0 +1,126 @@
+.content-finish {
+    background-color: white;
+    padding: 50px;
+}
+
+.content-finish-flex {
+    display: flex;
+}
+
+.content-finish-flex-left {
+    width: 75%;
+}
+
+.content-finish-flex-left-parent {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-finish-flex-left-parent-child-thanks {
+    font-size: 34px;
+    font-weight: bold;
+    color: #FF8A00;
+}
+
+.content-finish-flex-left-parent-child-order {
+    font-size: 16px;
+    margin: 20px 0 5px 0;
+    font-weight: bold;
+}
+
+.content-finish-flex-left-parent-child-desc {
+    font-size: 12px;
+}
+
+.content-finish-flex-left-parent-child-button {
+    margin: 40px 0 0 0;
+    border: none;
+    background-color: white;
+    outline: none;
+}
+
+.content-finish-flex-left-parent-child-button:active {
+    border: none;
+    outline: none;
+    background-color: white;
+    color: #FF8A00;
+}
+
+
+.content-finish-flex-right {
+    width: 28%;
+}
+
+.content-finish-flex-right-header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF8A00;
+}
+
+.content-finish-flex-right-header-desc {
+    color: rgba(0, 0, 0, 0.785);
+    margin: 10px 0 30px 0;
+}
+
+.content-finish-flex-right-body-desc {
+    color: rgba(112, 96, 96, 0.785);
+    margin-bottom: 90px;
+}
+
+.content-finish-flex-right-bottom-cost {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-finish-flex-right-bottom-dropshipping {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.content-finish-flex-right-bottom-shipment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-finish-flex-right-bottom-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0 25px 0;
+}
+
+.content-finish-flex-right-bottom-total-title {
+    font-size: 24px;
+    color: #FF8A00;
+    font-weight: bold;
+}
+
+.content-finish-flex-right-bottom-total-price {
+    font-size: 24px;
+    color: #FF8A00;
+    font-weight: bold;
+}
+
+.content-finish-flex-right-body {
+    margin: 80px 0;
+}
+.content-finish-flex-right-bottom-button {
+    min-width: 100%;
+    min-height: 50px;
+    background-color: #FF8A00;
+    border: none; 
+    color: white;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 849px) {
+
+    .content-finish-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content-finish-flex-right {
+        min-width: max-content;
+    }
+}
