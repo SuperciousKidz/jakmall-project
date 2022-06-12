@@ -16,7 +16,8 @@ const App = () => {
     deliveryAddress: "",
     costOfGoods: 500000,
     dropshippingFee: 0,
-    paymentBalance: 1500000
+    paymentBalance: 1500000,
+    idOrder: ""
   })
 
   useEffect(() => {

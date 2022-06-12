@@ -47,7 +47,6 @@ const Delivery = () => {
     useEffect(() => {
         nextStep();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        
     }, []);
 
     return (
@@ -80,7 +79,10 @@ const Delivery = () => {
                                 <input autoComplete="off" {...register("phoneNumber", {pattern:{value: /^[0-9+-/()]+$/, message: "invalid mobile number"}, minLength: 6, maxLength: 20})} className={errors.phoneNumber ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} placeholder='Phone number' type="tel" id="phoneNumber" name="phoneNumber"/>
                                 {errors.phoneNumber && <p>{errors.phoneNumber.message}</p>}
                             </div>
-                            <input autoComplete="off" disabled={isCheck === false} {...register("dropshipperPhoneNumber", {required: (isCheck === true ? true : false), pattern:{value: /^[0-9+-/()]+$/, message: "invalid mobile number"}, minLength: 6, maxLength: 20})} placeholder='Dropshipper phone number' type="text" className={errors.dropshipperPhoneNumber ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} id="dropshipperPhoneNumber" name="dropshipperPhoneNumber" />
+                            <div>
+                                <input autoComplete="off" disabled={isCheck === false} {...register("dropshipperPhoneNumber", {required: (isCheck === true ? true : false), pattern:{value: /^[0-9+-/()]+$/, message: "invalid mobile number"}, minLength: 6, maxLength: 20})} placeholder='Dropshipper phone number' type="text" className={errors.dropshipperPhoneNumber ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} id="dropshipperPhoneNumber" name="dropshipperPhoneNumber" />
+                                {errors.dropshipperPhoneNumber && <p>{errors.dropshipperPhoneNumber.message}</p>}
+                            </div>
                             <div>
                                 <textarea {...register("deliveryAddress", {required: true, maxLength: 120})} onChange={e => setCountTextArea(e.target.value.length)} placeholder='Delivery address' className={errors.deliveryAddress ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} id="deliveryAddress" name="deliveryAddress" />
                                 <div className='digit'>

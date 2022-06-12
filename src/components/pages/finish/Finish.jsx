@@ -1,23 +1,29 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useEffect, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ValueContext } from '../../context/ValueContext';
 import './css/Finish.css'
 const Finish = () => {
 
     const {values, setValues} = useContext(ValueContext);
-    const [order, setOrder] = useState("");
     let navigate = useNavigate()
 
     useEffect(() => {
-      const tempValues = JSON.parse(window.localStorage.getItem('value'));
-      setValues({
-        ...tempValues
-      })
+        //generate id order
+        const tempValues = JSON.parse(window.localStorage.getItem('value'));
+        setValues({
+            ...tempValues
+        })
+        if(!tempValues.idOrder) {
+            const arr = [...Array(5)].map(i=>(~~(Math.random()*36)).toString(36)).join('')
+            const regex = /([0-1IO])/g;
+            const idOrder = arr.replace(regex, 'A');
+            setValues({
+                ...tempValues, idOrder
+            })
+            window.localStorage.setItem('value', JSON.stringify({...tempValues, idOrder}));
+        }
 
-      //generate id order
-      const arr = [...Array(5)].map(i=>(~~(Math.random()*36)).toString(36)).join('')
-      const regex = /([0-1IO])/g;
-      setOrder(arr.replace(regex, 'A'))
+          // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const goBackHome = () => {
@@ -32,7 +38,8 @@ const Finish = () => {
             paymentBalance: 1500000,
             phoneNumber: "",
             shipment: "",
-            shipmentPrice: 0
+            shipmentPrice: 0,
+            idOrder: ""
         }
         setValues({
             ...resetValue
@@ -52,7 +59,7 @@ const Finish = () => {
                             </div>
                             <div className='content-finish-flex-left-parent-child-order'>
                                 Order ID: {
-                                    order
+                                    values.idOrder || "-"
                                 }
                             </div>
                             <div className='content-finish-flex-left-parent-child-desc'>
@@ -110,7 +117,7 @@ const Finish = () => {
                         </div>
                         <div className='content-finish-flex-right-bottom-shipment'>
                             <div className='content-finish-flex-right-bottom-shipment-title'>
-                                shipment
+                                Shipment
                             </div>
                             <div className='content-finish-flex-right-bottom-shipment-price'>
                                 {values.shipmentPrice}

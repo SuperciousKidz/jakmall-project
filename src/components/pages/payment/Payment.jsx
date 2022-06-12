@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { ValueContext } from '../../context/ValueContext';
 import './css/Payment.css'
 import { useForm } from 'react-hook-form'
@@ -8,7 +8,7 @@ const Payment = () => {
 
   let navigate = useNavigate()
   const {values, setValues} = useContext(ValueContext);
-  const {register, handleSubmit, setValue, formState: {errors}} = useForm({
+  const {register, handleSubmit, setValue} = useForm({
     defaultValues: {
       shipment: "",
       shipmentPrice: ""
@@ -20,7 +20,7 @@ const Payment = () => {
       ...tempValues
     })
     nextSteps();
-    
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function nextSteps(data) {
@@ -45,7 +45,8 @@ const Payment = () => {
         paymentBalance: 1500000,
         phoneNumber: "",
         shipment: "",
-        shipmentPrice: 0
+        shipmentPrice: 0,
+        idOrder: ""
     }
     setValues({
         ...resetValue
