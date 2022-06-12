@@ -156,7 +156,7 @@ const Payment = () => {
                 </div>
               </div>
               <button disabled={values.shipment && values.payment ? false : true} onClick={() => {navigate('/finish')}} className='content-payment-flex-right-bottom-button'>
-                Pay with e-wallet
+                Pay with {values.payment}
               </button>
             </div>
           </div>

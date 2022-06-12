@@ -90,7 +90,7 @@ const Delivery = () => {
                         <div className='content-delivery-header-left-middle'>
                             <div>
                                 <icon className={errors.email ? 'icon-wrong-delivery' : 'icon-correct-delivery'}>{errors.email ? '✗' : '✔'}</icon>
-                                <input autoComplete="off" {...register("email", {pattern:{value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "invalid email address"}})} 
+                                <input autoComplete="off" {...register("email", {required: true, pattern:{value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "invalid email address"}})} 
                                 placeholder='Email' type="text" className={errors.email ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} id="email" name="email"></input>
                             </div>
                             <div>
@@ -99,7 +99,7 @@ const Delivery = () => {
                             </div>
                             <div>
                                 <icon className={errors.phoneNumber ? 'icon-wrong-delivery' : 'icon-correct-delivery'}>{errors.phoneNumber ? '✗' : '✔'}</icon>
-                                <input autoComplete="off" {...register("phoneNumber", {pattern:{value: /^[0-9+-/()]+$/, message: "invalid mobile number"}, minLength: 6, maxLength: 20})} className={errors.phoneNumber ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} placeholder='Phone number' type="tel" id="phoneNumber" name="phoneNumber"/>
+                                <input autoComplete="off" {...register("phoneNumber", {required: true, pattern:{value: /^[0-9+-/()]+$/, message: "invalid mobile number"}, minLength: 6, maxLength: 20})} className={errors.phoneNumber ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} placeholder='Phone number' type="tel" id="phoneNumber" name="phoneNumber"/>
                             </div>
                             <div>
                                 <icon className={errors.dropshipperPhoneNumber ? 'icon-wrong-delivery' : 'icon-correct-delivery'}>{errors.dropshipperPhoneNumber ? '✗' : '✔'}</icon>
