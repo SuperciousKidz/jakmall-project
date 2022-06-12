@@ -47,7 +47,16 @@
     background-color: white;
     color: #FF8A00;
 }
-
+.horizontal-rule-finish-first {
+    border: 0.5px #D8D8D8 solid;
+    width: 100px;
+    margin: 0 0 -50px 0;
+}
+.horizontal-rule-finish-second {
+    border: 0.5px #D8D8D8 solid;
+    width: 100px;
+    margin: -60px 0 -50px 0;
+}
 
 .content-finish-flex-right {
     width: 28%;
@@ -60,15 +69,37 @@
 }
 
 .content-finish-flex-right-header-desc {
-    color: rgba(0, 0, 0, 0.785);
+    opacity: 60%;
     margin: 10px 0 30px 0;
 }
 
 .content-finish-flex-right-body-desc {
-    color: rgba(112, 96, 96, 0.785);
+    color: #1BD97B;
+    font-weight: bold;
     margin-bottom: 90px;
 }
 
+.content-finish-flex-right-bottom-cost-title {
+    opacity: 60%;
+}
+
+.content-finish-flex-right-bottom-cost-price {
+    font-weight: bold;
+}
+
+.content-finish-flex-right-bottom-dropshipping-title {
+    opacity: 60%;
+}
+.content-finish-flex-right-bottom-dropshipping-price {
+    font-weight: bold;
+}
+
+.content-finish-flex-right-bottom-shipment-title {
+    opacity: 60%;
+}
+.content-finish-flex-right-bottom-shipment-price {
+    font-weight: bold;
+}
 .content-finish-flex-right-bottom-cost {
     display: flex;
     justify-content: space-between;
@@ -114,6 +145,8 @@
     font-weight: bold;
 }
 
+
+
 @media only screen and (max-width: 849px) {
 
     .content-finish-flex {
@@ -122,5 +155,14 @@
     }
     .content-finish-flex-right {
         min-width: max-content;
+    }
+}
+
+@media only screen and (max-width: 761px) {
+    .content-finish-flex-right-bottom-cost {
+        display: block;
+    }
+    .content-finish-flex-right-bottom-dropshipping {
+        display: block;
     }
 }

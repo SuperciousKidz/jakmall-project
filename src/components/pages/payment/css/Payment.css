@@ -31,6 +31,11 @@
     color: #FF8A00;
 }
 
+.content-payment-flex-left-shipment-choose {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .content-payment-flex-left-shipment-choose-box {
     border: 2px solid rgba(0, 0, 0, 0.097);
     padding: 10px 0px 10px 10px;
@@ -42,13 +47,13 @@
 .content-payment-flex-left-shipment-choose-box-now {
     padding: 10px 0px 10px 10px;
     width: 160px;
-    border: 2px solid green;
+    border: 2px solid #1BD97B;
     margin: 20px 20px 0 0;
     text-align: left;
 }
 
 .content-payment-flex-left-shipment-choose-box:focus {
-    border: 2px solid green;
+    border: 2px solid #1BD97B;
     margin: 20px 20px 0 0;
     text-align: left;
 }
@@ -63,6 +68,11 @@
     margin: 50px 0 0 0;
 }
 
+.content-payment-flex-left-payment-choose {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .content-payment-flex-left-payment-choose-box {
     border: 2px solid rgba(0, 0, 0, 0.097);
     padding: 10px 0px 10px 10px;
@@ -72,7 +82,7 @@
 }
 
 .content-payment-flex-left-payment-choose-box-now {
-    border: 2px solid green;
+    border: 2px solid #1BD97B;
     padding: 10px 0px 10px 10px;
     margin: 20px 20px 0 0;
     text-align: left;
@@ -80,7 +90,7 @@
 }
 
 .content-payment-flex-left-payment-choose-box:focus {
-    border: 2px solid green;
+    border: 2px solid #1BD97B;
     margin: 20px 20px 0 0;
     text-align: left;
 }
@@ -96,12 +106,13 @@
 }
 
 .content-payment-flex-right-header-desc {
-    color: rgba(0, 0, 0, 0.785);
+    opacity: 60%;
     margin: 10px 0 30px 0;
 }
 
 .content-payment-flex-right-body-desc {
-    color: rgba(112, 96, 96, 0.785);
+    color: #1BD97B;
+    font-weight: bold;
     margin-bottom: 90px;
 }
 
@@ -157,6 +168,45 @@
     border: none; 
     color: rgb(255, 255, 255);
     font-weight: bold;
+}
+
+i {
+    float: right;
+    position: absolute;
+    margin: 30px 0 0 130px;
+}
+
+.icon-correct {
+    float: right;
+    position: absolute;
+    margin: 30px 0 0 130px;
+    color: #1BD97B;
+}
+
+.content-payment-flex-right-bottom-shipment-price {
+    font-weight: bold;
+}
+
+.content-payment-flex-right-bottom-cost-title {
+    opacity: 60%;
+}
+.content-payment-flex-right-bottom-cost-price {
+    font-weight: bold;
+}
+.content-payment-flex-right-bottom-dropshipping-title {
+    opacity: 60%;
+}
+.content-payment-flex-right-bottom-dropshipping-price {
+    font-weight: bold;
+}
+.content-payment-flex-right-bottom-shipment-title {
+    opacity: 60%;
+}
+
+.horizontal-rule-payment {
+    border: 0.5px #D8D8D8 solid;
+    width: 100px;
+    margin: 0 0 -50px 0;
 }
 
 @media only screen and (max-width: 890px) {

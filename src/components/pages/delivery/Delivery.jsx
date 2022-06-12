@@ -62,7 +62,25 @@ const Delivery = () => {
                                 Delivery details
                             </p>
                             <div className='content-delivery-header-left-top-checkbox'>
-                                <input name="dropshippingFeeToggle" checked={isCheck} onChange={() => {setIsCheck(!isCheck)}}
+                                <input name="dropshippingFeeToggle" checked={isCheck} onChange={
+                                    () => {
+                                        setIsCheck(!isCheck);
+                                        if(isCheck === false) {
+                                            const dropshippingFee = 5900;
+                                            const items = JSON.parse(window.localStorage.getItem('value'));
+                                            window.localStorage.setItem('value', JSON.stringify({...items, dropshippingFee}));
+                                            setValues({
+                                                ...items, dropshippingFee
+                                            })
+                                        }else {
+                                            const dropshippingFee = 0;
+                                            const items = JSON.parse(window.localStorage.getItem('value'));
+                                            window.localStorage.setItem('value', JSON.stringify({...items, dropshippingFee}));
+                                            setValues({
+                                                ...items, dropshippingFee
+                                            })
+                                        }
+                                    }}
                                 className='content-delivery-header-left-top-checkbox-input' type="checkbox" />
                                 <p className='content-delivery-header-left-top-checkbox-title'>
                                     Send as dropshipper
@@ -71,19 +89,24 @@ const Delivery = () => {
                         </div>
                         <div className='content-delivery-header-left-middle'>
                             <div>
+                                <icon className={errors.email ? 'icon-wrong-delivery' : 'icon-correct-delivery'}>{errors.email ? '✗' : '✔'}</icon>
                                 <input autoComplete="off" {...register("email", {pattern:{value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: "invalid email address"}})} 
                                 placeholder='Email' type="text" className={errors.email ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} id="email" name="email"></input>
                             </div>
-                            <input autoComplete="off" disabled={isCheck === false} {...register("dropshipperName", {required: (isCheck === true ? true : false)})} className={errors.dropshipperName ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} placeholder='Dropshipper name' type="text" id="dropshipperName" name="dropshipperName"/>
                             <div>
+                                <icon className={errors.dropshipperName ? 'icon-wrong-delivery' : 'icon-correct-delivery'}>{errors.dropshipperName ? '✗' : '✔'}</icon>
+                                <input autoComplete="off" disabled={isCheck === false} {...register("dropshipperName", {required: (isCheck === true ? true : false)})} className={errors.dropshipperName ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} placeholder='Dropshipper name' type="text" id="dropshipperName" name="dropshipperName"/>
+                            </div>
+                            <div>
+                                <icon className={errors.phoneNumber ? 'icon-wrong-delivery' : 'icon-correct-delivery'}>{errors.phoneNumber ? '✗' : '✔'}</icon>
                                 <input autoComplete="off" {...register("phoneNumber", {pattern:{value: /^[0-9+-/()]+$/, message: "invalid mobile number"}, minLength: 6, maxLength: 20})} className={errors.phoneNumber ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} placeholder='Phone number' type="tel" id="phoneNumber" name="phoneNumber"/>
-                                {errors.phoneNumber && <p>{errors.phoneNumber.message}</p>}
                             </div>
                             <div>
+                                <icon className={errors.dropshipperPhoneNumber ? 'icon-wrong-delivery' : 'icon-correct-delivery'}>{errors.dropshipperPhoneNumber ? '✗' : '✔'}</icon>
                                 <input autoComplete="off" disabled={isCheck === false} {...register("dropshipperPhoneNumber", {required: (isCheck === true ? true : false), pattern:{value: /^[0-9+-/()]+$/, message: "invalid mobile number"}, minLength: 6, maxLength: 20})} placeholder='Dropshipper phone number' type="text" className={errors.dropshipperPhoneNumber ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} id="dropshipperPhoneNumber" name="dropshipperPhoneNumber" />
-                                {errors.dropshipperPhoneNumber && <p>{errors.dropshipperPhoneNumber.message}</p>}
                             </div>
                             <div>
+                                <icon className={errors.deliveryAddress ? 'icon-wrong-delivery' : 'icon-correct-delivery'}>{errors.deliveryAddress ? '✗' : '✔'}</icon>
                                 <textarea {...register("deliveryAddress", {required: true, maxLength: 120})} onChange={e => setCountTextArea(e.target.value.length)} placeholder='Delivery address' className={errors.deliveryAddress ? 'content-delivery-header-left-middle-inputBar-wrong' : 'content-delivery-header-left-middle-inputBar-correct'} id="deliveryAddress" name="deliveryAddress" />
                                 <div className='digit'>
                                     Jumlah digit yang tersisa {120 - (countTextArea) }
@@ -103,30 +126,28 @@ const Delivery = () => {
                             </div>
                             <div className='content-delivery-header-summary-bottom'>
                                 <div className='content-delivery-header-summary-bottom-cost'>
-                                    <p>
+                                    <div className='content-delivery-header-summary-bottom-cost-title'>
                                         Cost of goods
-                                    </p>
-                                    <p className='content-delivery-header-summary-bottom-cost-price'>
-                                        {values.costOfGoods}
-                                    </p>
+                                    </div>
+                                    <div className='content-delivery-header-summary-bottom-cost-price'>
+                                        {(values.costOfGoods || 0).toLocaleString(undefined, { maximumFractionDigits: 5 })}
+                                    </div>
                                 </div>
                                 <div className='content-delivery-header-summary-bottom-dropshipping'>
-                                    <p>
+                                    <div className='content-delivery-header-summary-bottom-dropshipping-title'>
                                         Dropshipping Fee
-                                    </p>
-                                    <p className='content-delivery-header-summary-bottom-dropshipping-price'>
-                                        {
-                                            isCheck === true ? values.dropshippingFee = 5900 : values.dropshippingFee = 0
-                                        }
-                                    </p>
+                                    </div>
+                                    <div className='content-delivery-header-summary-bottom-dropshipping-price'>
+                                        {(values.dropshippingFee || 0).toLocaleString(undefined, { maximumFractionDigits: 5 })}
+                                    </div>
                                 </div>
                                 <div className='content-delivery-header-summary-bottom-total'>
-                                    <p className='content-delivery-header-summary-bottom-total-title'>
+                                    <div className='content-delivery-header-summary-bottom-total-title'>
                                         Total
-                                    </p>
-                                    <p className='content-delivery-header-summary-bottom-total-price'>
-                                    {values.dropshippingFee + values.costOfGoods}
-                                    </p>
+                                    </div>
+                                    <div className='content-delivery-header-summary-bottom-total-price'>
+                                    {((values.dropshippingFee + values.costOfGoods) || 0).toLocaleString(undefined, { maximumFractionDigits: 5 })}
+                                    </div>
                                 </div>
                                 <button className='content-delivery-header-summary-bottom-button'>
                                     Continue to Payment

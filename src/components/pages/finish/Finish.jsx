@@ -65,7 +65,7 @@ const Finish = () => {
                             <div className='content-finish-flex-left-parent-child-desc'>
                                 You order will be delivered {(values.shipment === 'GO-SEND') ? "today with " + values.shipment : values.shipment === 'JNE' ? "2 days with " + values.shipment : "1 day with " + values.shipment }
                             </div>
-                            <button className='content-finish-flex-left-parent-child-button' onClick={() => goBackHome()}> ← Back to homepage</button>
+                            <button className='content-finish-flex-left-parent-child-button' onClick={() => goBackHome()}> ← Go to homepage</button>
                         </div>
                     </div>
                 </div>
@@ -78,6 +78,7 @@ const Finish = () => {
                         10 items purchased
                         </div>
                     </div>
+                    <div className='horizontal-rule-finish-first'></div>
                     <div className='content-finish-flex-right-body'>
                         <div className='content-finish-flex-right-body-title'>
                         Delivery estimation
@@ -88,6 +89,7 @@ const Finish = () => {
                         }
                         </div>
                     </div>
+                    <div className='horizontal-rule-finish-second'></div>
                     <div className='content-finish-flex-right-body'>
                         <div className='content-finish-flex-right-body-title'>
                         Payment method
@@ -104,7 +106,7 @@ const Finish = () => {
                                 Cost of goods
                             </div>
                             <div className='content-finish-flex-right-bottom-cost-price'>
-                                {values.costOfGoods}
+                                {(values.costOfGoods || 0).toLocaleString(undefined, { maximumFractionDigits: 5 })}
                             </div>
                         </div>
                         <div className='content-finish-flex-right-bottom-dropshipping'>
@@ -112,7 +114,7 @@ const Finish = () => {
                                 Dropshopping Fee
                             </div>
                             <div className='content-finish-flex-right-bottom-dropshipping-price'>
-                                {values.dropshippingFee}
+                                {(values.dropshippingFee || 0).toLocaleString(undefined, { maximumFractionDigits: 5 })}
                             </div>
                         </div>
                         <div className='content-finish-flex-right-bottom-shipment'>
@@ -120,7 +122,7 @@ const Finish = () => {
                                 Shipment
                             </div>
                             <div className='content-finish-flex-right-bottom-shipment-price'>
-                                {values.shipmentPrice}
+                                {(values.shipmentPrice || 0).toLocaleString(undefined, { maximumFractionDigits: 5 })}
                             </div>
                         </div>
                         <div className='content-finish-flex-right-bottom-total'>
@@ -128,7 +130,7 @@ const Finish = () => {
                                 Total
                             </div>
                             <div className='content-finish-flex-right-bottom-total-price'>
-                                {values.costOfGoods + values.dropshippingFee + (values.shipmentPrice || 0)}
+                                {(values.costOfGoods + values.dropshippingFee + (values.shipmentPrice || 0) || 0).toLocaleString(undefined, { maximumFractionDigits: 5 })}
                             </div>
                         </div>
                     </div>

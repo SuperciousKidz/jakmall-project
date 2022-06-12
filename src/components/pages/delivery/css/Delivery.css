@@ -56,6 +56,11 @@
 
 .content-delivery-header-summary-top-desc {
     margin: 10px 0 0 0;
+    opacity: 60%;
+}
+
+.content-delivery-header-summary-bottom-cost-title {
+    opacity: 60%;
 }
 
 .content-delivery-header-left-middle {
@@ -82,7 +87,7 @@
     min-height: 50px;
     margin: 10px 0 0 0;
     border-style: solid;
-    border-color: green;
+    border-color: #1BD97B;
     border-width: 2px;
     
 }
@@ -170,6 +175,36 @@ input:-ms-input-placeholder { /* Internet Explorer 10+ */
     color: #FF8A00;
 }
 
+icon {
+    float: right;
+    position: absolute;
+    margin: 20px 0 0 360px;
+}
+
+.icon-correct-delivery {
+    float: right;
+    position: absolute;
+    margin: 20px 0 0 360px;
+    color: #1BD97B;
+}
+
+.icon-wrong-delivery {
+    float: right;
+    position: absolute;
+    margin: 20px 0 0 360px;
+    color: #FF8A00;
+}
+
+.content-delivery-header-summary-bottom-cost-price {
+    font-weight: bold;
+}
+.content-delivery-header-summary-bottom-dropshipping-price {
+    font-weight: bold;
+}
+.content-delivery-header-summary-bottom-dropshipping-title {
+    opacity: 60%;
+}
+
 @media only screen and (max-width: 1045px) {
     .content-delivery-header {
          /* background-color: yellow; */
@@ -226,12 +261,30 @@ input:-ms-input-placeholder { /* Internet Explorer 10+ */
         min-height: 40px;
         margin: 10px 0 0 0;
         border-style: solid;
-        border-color: green;
+        border-color: #1BD97B;
         border-width: 2px;
         
     }
     .content-delivery-header-left-middle-inputBar-correct:focus {
         outline: none;
+    }
+    icon {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 210px;
+    }
+    .icon-correct-delivery {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 210px;
+        color: #1BD97B;
+    }
+    
+    .icon-wrong-delivery {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 210px;
+        color: #FF8A00;
     }
 }
 
@@ -254,11 +307,70 @@ input:-ms-input-placeholder { /* Internet Explorer 10+ */
         min-height: 40px;
         margin: 10px 0 0 0;
         border-style: solid;
-        border-color: green;
+        border-color: #1BD97B;
         border-width: 2px;
         
     }
     .content-delivery-header-left-middle-inputBar-correct:focus {
         outline: none;
+    }
+    icon {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 140px;
+    }
+    .icon-correct-delivery {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 140px;
+        color: #1BD97B;
+    }
+    
+    .icon-wrong-delivery {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 140px;
+        color: #FF8A00;
+    }
+    .content-delivery-header-summary-bottom {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content-delivery-header-summary-bottom-cost {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content-delivery-header-summary-bottom-cost-price {
+        margin-left: 10px;
+    }
+    .content-delivery-header-summary-bottom-dropshipping-price {
+        margin-left: 10px;
+    }
+    .content-delivery-header-summary-bottom-total-price {
+        margin-left: 10px;
+    }
+    .content-delivery-header-summary-bottom-button {
+        min-width: 150px;
+    }
+}
+
+@media only screen and (max-width: 565x) {
+    icon {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 20px;
+    }
+    .icon-correct-delivery {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 20px;
+        color: #1BD97B;
+    }
+    
+    .icon-wrong-delivery {
+        float: right;
+        position: absolute;
+        margin: 18px 0 0 20px;
+        color: #FF8A00;
     }
 }
